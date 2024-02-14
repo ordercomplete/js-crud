@@ -1,0 +1,78 @@
+@use '../../lib/servise.scss' as s;
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+
+  padding: s.space(4);
+  margin: 20px;
+  gap: s.space(8);
+  max-width: 400px;
+
+  &__card {
+    border: 1px solid s.color('light');
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 400px;
+
+    padding: s.space(4);
+
+    gap: s.space(8);
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: s.space(2);
+    color: rgb(62, 162, 255);
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__namePrice {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__namePrice .form__field {
+    width: 49%;
+  }
+
+  &__content {
+    display: grid;
+    gap: s.space(6);
+    margin-top: 20px;
+  }
+
+  &__content .form__field .form__description {
+    height: 60px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(2);
+  }
+
+  &__label {
+    font-size: 16px;
+  }
+
+  &__labelSmall {
+    font-size: 12px;
+  }
+
+  &__button {
+    padding: s.space(2);
+    color: rgb(62, 162, 255);
+  }
+}
+
+.main {
+  justify-content: center;
+
+  display: flex;
+}

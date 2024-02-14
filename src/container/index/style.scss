@@ -1,17 +1,31 @@
 @use '../../lib/servise.scss' as s;
 
-.form {
+.main {
   display: flex;
   flex-direction: column;
+  gap: s.space(10);
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.form {
   padding: s.space(4);
+  gap: s.space(8);
+  width: 500px;
+
+  border: 1px solid s.color('light');
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+  padding: s.space(4);
+
   gap: s.space(8);
 
   &__title {
     font-size: 20px;
     font-weight: bold;
     padding-bottom: s.space(4);
-
-    border-bottom: 1px solid s.color('light');
   }
 
   &__content {
@@ -32,19 +46,27 @@
   &__input {
     border: 1px solid s.color('light');
     padding: s.space(2);
+    border-radius: 5px;
   }
 
   &__button {
     border: 1px solid s.color('light');
     padding: s.space(2);
-    border-radius: 20px;
+    border-radius: 5px;
+    color: white;
   }
-}
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: s.space(10);
+  &__btnBlue {
+    background-color: rgb(62, 162, 255);
+  }
+
+  &__btnGreen {
+    background-color: green;
+  }
+
+  &__btnRed {
+    background-color: red;
+  }
 }
 
 .user-list {
