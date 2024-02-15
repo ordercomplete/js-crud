@@ -1,0 +1,88 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+input,
+textarea {
+  word-wrap: break-word;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 20px;
+  gap: 32px;
+  max-width: 100%;
+}
+.form__card {
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  max-width: 940px;
+  padding: 16px;
+  gap: 32px;
+}
+.form__title {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 8px;
+  color: rgb(62, 162, 255);
+}
+.form h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.form__flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.form__flex button {
+  width: 32%;
+}
+.form__flex input {
+  gap: 12px;
+}
+.form__content {
+  display: grid;
+  gap: 24px;
+  margin-top: 20px;
+}
+.form__content .form__field .form__description {
+  height: 60px;
+}
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__label {
+  font-size: 16px;
+}
+.form__labelSmall {
+  font-size: 12px;
+}
+.form__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 5px;
+}
+.form__button {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 5px;
+  color: white;
+}
+.form__btnBlue {
+  background-color: rgb(62, 162, 255);
+}
+.form__btnGreen {
+  background-color: green;
+}
+.form__btnRed {
+  background-color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

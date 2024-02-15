@@ -1,0 +1,117 @@
+@use '../../lib/servise.scss' as s;
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+input,
+textarea {
+  word-wrap: break-word;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  padding: s.space(4);
+  margin: 20px;
+  gap: s.space(8);
+
+  max-width: 100%;
+
+  &__card {
+    border: 1px solid s.color('light');
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-width: 940px;
+
+    padding: s.space(4);
+
+    gap: s.space(8);
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: s.space(2);
+    color: rgb(62, 162, 255);
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    gap: s.space(3);
+  }
+
+  &__flex button {
+    width: 32%;
+  }
+
+  &__flex input {
+    gap: s.space(3);
+  }
+
+  &__content {
+    display: grid;
+    gap: s.space(6);
+    margin-top: 20px;
+  }
+
+  &__content .form__field .form__description {
+    height: 60px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(2);
+  }
+
+  &__label {
+    font-size: 16px;
+  }
+
+  &__labelSmall {
+    font-size: 12px;
+  }
+
+  &__input {
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+    border-radius: 5px;
+  }
+
+  &__button {
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+    border-radius: 5px;
+    color: white;
+    // width: 32%;
+  }
+
+  &__btnBlue {
+    background-color: rgb(62, 162, 255);
+  }
+
+  &__btnGreen {
+    background-color: green;
+  }
+
+  &__btnRed {
+    background-color: red;
+  }
+}
+
+// .user-list {
+//   li {
+//     padding-right: 15px;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+//   }
+// }
