@@ -1,5 +1,11 @@
 @use '../../lib/service.scss' as s;
 
+.main {
+  justify-content: center;
+
+  display: flex;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -27,17 +33,14 @@
     color: rgb(62, 162, 255);
   }
 
-  // .h2 {
-  //   font-size: 20px;
-  //   font-weight: bold;
-  // }
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
 
   &__namePrice {
     display: flex;
     justify-content: space-between;
-    // justify-content: center;
-    align-items: center;
-    // height: 100vh; /* Належна висота */
   }
 
   &__namePrice .form__field {
@@ -46,8 +49,8 @@
 
   &__content {
     display: grid;
-    gap: s.space(4);
-    // margin: 10px;
+    gap: s.space(6);
+    margin-top: 20px;
   }
 
   &__content .form__field .form__description {
@@ -68,19 +71,17 @@
     font-size: 12px;
   }
 
+  &__input {
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+    border-radius: 5px;
+  }
+
   &__button {
     border: 1px solid s.color('light');
     padding: s.space(2);
     border-radius: 5px;
     color: white;
     background-color: rgb(62, 162, 255);
-    height: 100%;
-    width: 250px;
   }
-}
-
-.main {
-  justify-content: center;
-
-  display: flex;
 }

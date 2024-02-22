@@ -9,11 +9,11 @@
     <div class='form__card'>
       <div class='form__namePrice'>
         <div class='form__content'>
-          <h2 class='form__label'>Успішна операція</h2>
-          <h3 class='form__labelSmall'>{{info}}</h3>
+          <h2 class='form__label'>{{data.message}}</h2>
+          <h3 class='form__labelSmall'>{{data.info}}</h3>
         </div>
         <button
-          onclick="location.href='/product-list'"
+          onclick="location.href='{{data.link}}'"
           class='form__button'
         >Повернутися назад</button>
       </div>

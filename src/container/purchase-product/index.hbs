@@ -1,0 +1,67 @@
+<main class="main">
+
+  <div class="product-single__text">
+    <div class="product-single__title">
+      {{> heading title="Інформація про товар"}}
+    </div>
+    
+  </div>
+
+  {{#with data.product}}
+
+    <form method="POST" action="/purchase-create?id={{id}}">
+
+      <div class="product-info">
+
+        <img
+          src="{{img}}"
+          аlt="{{title}}"
+          class="product-info__image"
+        />
+
+        <div class="product-info__text">
+
+          <h2 class="product-info__title">{{title}}</h2>
+          <p
+            class="product-info__subtitle"
+          >{{description}}</p>
+
+          {{> divider}}
+
+          {{#each category}}
+            <span
+              class="product-info__category product-info__category--{{id}}"
+            >{{text}}</span>
+          {{/each}}
+
+          {{> divider}}
+
+          {{> field label="Кількість" type="number" name="amount" value="1"}}
+
+          <button
+            class="product-info__button"
+          >Kyпити зараз: {{price}} грн</button>
+
+        </div>
+      </div>
+
+    </form>
+
+  {{/with}}
+
+  <div class="product-other__text">
+    <div class="product-other__title">
+      {{> heading title="Інші товари"}}
+    </div>
+    <div class="product-subtitle">
+      {{> heading info="Комп'ютери та ноутбуки, неттопи та моноблоки"}}
+    </div>
+  </div>
+
+  <div class="product-list">
+    {{#each data.list}}
+      {{> purchase-product data=this}}
+    {{/each}}
+  </div>
+</main>
+
