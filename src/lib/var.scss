@@ -1,5 +1,9 @@
 $colorMap: (
   light: #ddd,
+  border: #ced4da,
+  gray: #5b6168,
+  dark: rgb(46, 40, 40),
+  main: #0050ff,
 );
 
 @function color($key) {

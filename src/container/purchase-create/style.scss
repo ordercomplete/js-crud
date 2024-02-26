@@ -1,0 +1,53 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as
+  purchaseProduct;
+@use '../../component/field/style.scss' as field;
+@use '../../component/divider/style.scss' as divider;
+@use '../../component/button/style.scss' as button;
+@use '../../component/form-field/style.scss' as form-field;
+@use '../../component/field-edit/style.scss' as field-edit;
+@use '../../component/field-id/style.scss' as field-id;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(10);
+  padding: s.space(10);
+  align-items: center;
+}
+.purchase-create {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: s.space(5);
+  padding: s.space(5);
+  border: 1px solid s.color(border);
+  border-radius: 10px;
+
+  &__card {
+    display: grid;
+    gap: s.space(6);
+  }
+
+  &__card-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card-flex {
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: s.space(5);
+  }
+
+  &__card-comment .field__input {
+    height: 60px;
+  }
+
+  &__total {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,23 @@
+{{#with data}}
+  <div class='purchase-product'>
+    <img
+      src='{{img}}'
+      alt='{{title}}'
+      class='purchase-product__image'
+    />
+    <div class='purchase-product__content'>
+      <h2 class='purchase-product__title'>{{title}}</h2>
+      <p class='purchase-product__subtitle'>{{description}}</p>
+
+      {{#each category}}
+        <span
+          class='purchase-product__category purchase-product__category--{{id}}'
+        >{{text}}</span>
+      {{/each}}
+      <a
+        href='/purchase-product?id={{id}}'
+      >{{> button text="Kynити зараз" price=price}}
+        </a>
+    </div>
+  </div>
+{{/with}}

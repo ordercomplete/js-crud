@@ -1,4 +1,4 @@
-@use '../../lib/servise.scss' as s;
+@use '../../lib/service.scss' as s;
 
 .main {
   display: flex;
@@ -38,10 +38,10 @@ textarea {
     color: rgb(62, 162, 255);
   }
 
-  h2 {
-    font-size: 20px;
-    font-weight: bold;
-  }
+  // h2 {
+  //   font-size: 20px;
+  //   font-weight: bold;
+  // }
 
   &__flex {
     display: flex;
@@ -107,11 +107,3 @@ textarea {
     background-color: red;
   }
 }
-
-// .user-list {
-//   li {
-//     padding-right: 15px;
-//     padding-top: 5px;
-//     padding-bottom: 5px;
-//   }
-// }

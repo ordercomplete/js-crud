@@ -1,0 +1,30 @@
+.field-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.field-edit__label {
+  font-size: 14px;
+  color: gray;
+}
+.field-edit__input {
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+}
+.field-edit__grid {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  justify-content: space-around;
+  gap: 16px;
+}
+
+.field--disabled {
+  position: absolute;
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
