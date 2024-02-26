@@ -3,15 +3,23 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: s.space(2);
   width: 100%;
 }
 
 .field__label {
   font-size: 14px;
+  color: gray;
+}
+
+.field__labelDown {
+  font-size: 12px;
+  color: gray;
 }
 
 .field__input {
+  font-size: 16px;
+
   border: 1px solid s.color('light');
   border-radius: 6px;
   padding: s.space(2);
@@ -20,4 +28,8 @@
 .field--disabled {
   position: absolute;
   display: none;
+}
+
+.flex {
+  display: flex;
 }

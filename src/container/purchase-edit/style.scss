@@ -1,0 +1,34 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as
+  purchaseProduct;
+@use '../../component/field/style.scss' as field;
+@use '../../component/divider/style.scss' as divider;
+@use '../../component/button/style.scss' as button;
+@use '../../component/form-field/style.scss' as form-field;
+@use '../../component/field-edit/style.scss' as field-edit;
+@use '../../component/field-id/style.scss' as field-id;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(10);
+  padding: s.space(10);
+  align-items: center;
+}
+.purchase-edit {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: s.space(5);
+  padding: s.space(5);
+  border: 1px solid s.color(border);
+  border-radius: 10px;
+
+  &__flex {
+    display: flex;
+    justify-content: space-around;
+    gap: s.space(5);
+  }
+}

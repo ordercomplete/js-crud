@@ -1,17 +1,17 @@
 {{#with data}}
-  <div class='product-card'>
+  <div class='purchase-product'>
     <img
       src='{{img}}'
       alt='{{title}}'
-      class='product-card__image'
+      class='purchase-product__image'
     />
-    <div class='product-card__content'>
-      <h2 class='product-card__title'>{{title}}</h2>
-      <p class='product-card__subtitle'>{{description}}</p>
+    <div class='purchase-product__content'>
+      <h2 class='purchase-product__title'>{{title}}</h2>
+      <p class='purchase-product__subtitle'>{{description}}</p>
 
       {{#each category}}
         <span
-          class='product-card__category product-card__category--{{id}}'
+          class='purchase-product__category purchase-product__category--{{id}}'
         >{{text}}</span>
       {{/each}}
       <a

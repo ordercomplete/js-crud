@@ -1,0 +1,10 @@
+<div class="field-edit {{#if disabled}}field--disabled{{/if}} flex">
+  <label for="{{name}}" class="field-edit__label">{{label}}</label>
+  <input 
+    class="field-edit__input"
+    type="{{#if type}}{{type}}{{/if}}"
+    name="{{name}}"
+    value="{{#if value}}{{value}}{{/if}}"
+    oninput="validity.valid||(value='');"
+    placeholder='Введіть вірні дані'>
+</div>

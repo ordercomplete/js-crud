@@ -3,60 +3,25 @@ const express = require('express')
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
 
-// router.get Створює нам один ентпоїнт
-
-// ↙️ тут вводимо шлях (PATH) до сторінки
-router.get('/purchase-index', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('purchase-index', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'purchase-index',
-
-    data: {
-      img: 'https://picsum.photos/212/318',
-      title: `7 Комп'ютер Artline Gaming (X43v31) AMD Ryzen 5 3600/`,
-      description: `AMD Ryzen 5 3600 (3.6 - 4.2 ГГц) / RAM 16 ГБ / HDD 1 ТБ + SSD 480 ГБ / nVidia GeForce RTX 3050, 8 ГБ / без ОД / LAN / без ОСБ`,
-      category: [
-        { id: 1, text: 'Готовий до відправки' },
-        { id: 2, text: 'Топ продажів' },
-      ],
-      price: 27000,
-      amount: 10,
-    },
-  })
-  // ↑↑ сюди вводимо JSON дані
-})
-
 // ==============================================
 
-// router.get Створює нам один ентпоїнт
+class UniqueIdGenerator {
+  static productCounter = 0
+  static purchaseCounter = 0
 
-// ↙️ тут вводимо шлях (PATH) до сторінки
-router.get('/purchase-alert', function (req, res) {
-  // res.render генерує нам HTML сторінку
+  static getNextProductId() {
+    return ++this.productCounter
+  }
 
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('purchase-alert', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'purchase-alert',
-
-    data: {
-      message: 'Операція успішна',
-      info: 'Товар створений',
-      link: '/purchase-index',
-    },
-  })
-  // ↑↑ сюди вводимо JSON дані
-})
-
-// ==============================================
+  static getNextPurchaseId() {
+    return ++this.purchaseCounter
+  }
+}
 
 class Product {
   static #list = []
 
-  static #count = 0
+  // static #count = 0
 
   constructor(
     img,
@@ -66,7 +31,7 @@ class Product {
     price,
     amount = 0,
   ) {
-    this.id = ++Product.#count // Генеруємо унікальний id для товару
+    this.id = UniqueIdGenerator.getNextProductId() // Генеруємо унікальний id для товару
     this.img = img
     this.title = title
     this.description = description
@@ -102,10 +67,11 @@ class Product {
     return shuffledList.slice(0, 3)
   }
 }
+
 // ==============================================
 Product.add(
   'https://picsum.photos/200/300',
-  `1 Комп'ютер Artline Gaming (X43v31) AMD Ryzen 5 3600/`,
+  `1 Комп'ютер Artline Gaming (X43v31) AMD Ryzen 5 3600`,
   `AMD Ryzen 5 3600 (3.6 - 4.2 ГГц) / RAM 16 ГБ / HDD 1 ТБ + SSD 480 ГБ / nVidia GeForce RTX 3050, 8 ГБ / без ОД / LAN / без ОС`,
   [
     { id: 1, text: 'Готовий до відправки' },
@@ -182,7 +148,11 @@ class Purchase {
   }
 
   static calcBonusAmount = (value) => {
-    return value * Purchase.#BONUS_FACTOR
+    // return Math.ceil(value * Purchase.#BONUS_FACTOR)
+    // return parseFloat(
+    //   (value * Purchase.#BONUS_FACTOR).toFixed(2),
+    // )
+    return (value * Purchase.#BONUS_FACTOR).toFixed(2)
   }
 
   static updateBonusBalance = (
@@ -190,6 +160,7 @@ class Purchase {
     price,
     bonusUse = 0,
   ) => {
+    //Додав округлення до найближчого більшого цілого числа
     const amount = this.calcBonusAmount(price)
 
     const currentBalance = Purchase.getBonusBalance(email)
@@ -205,7 +176,7 @@ class Purchase {
   }
 
   constructor(data, product) {
-    this.id = ++Purchase.#count
+    this.id = UniqueIdGenerator.getNextPurchaseId()
 
     this.firstname = data.firstname
     this.lastname = data.lastname
@@ -234,15 +205,15 @@ class Purchase {
   }
 
   static getList = () => {
-    return Purchase.#list.reverse() //.map(({...})=>({...}))
+    return Purchase.#list.reverse()
   }
 
-  static getByld = (id) => {
+  static getById = (id) => {
     return Purchase.#list.find((item) => item.id === id)
   }
 
   static updateById = (id, data) => {
-    const purchase = Purchase.getByld(id)
+    const purchase = Purchase.getById(id)
 
     if (purchase) {
       if (data.firstname)
@@ -295,17 +266,11 @@ Promocode.add('SALE25', 0.75)
 router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
-  // const id = Number(req.query.id)
-
   // ↙️ cюди вводимо назву файлу з сontainer
   res.render('purchase-index', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-index',
-    // data: {
 
-    //   list: Product.getRandomList(id),
-    //   product: Product.getById(id),
-    // },
     data: {
       list: Product.getList(),
     },
@@ -390,7 +355,7 @@ router.post('/purchase-create', function (req, res) {
           price: productPrice,
         },
         {
-          text: `Доставка`,
+          text: `Вартість доставки`,
 
           price: Purchase.DELIVERY_PRICE,
         },
@@ -409,6 +374,7 @@ router.post('/purchase-create', function (req, res) {
 
 router.post('/purchase-submit', function (req, res) {
   const id = Number(req.query.id)
+
   let {
     totalPrice,
     productPrice,
@@ -538,9 +504,139 @@ router.post('/purchase-submit', function (req, res) {
     data: {
       message: 'Успішно',
       info: 'Замовлення створено',
-      link: `/purchase-list`,
+      link: `/purchase-orderinfo?id=${id}`,
     },
-    // тт сюди вводимо JSON дані })
+  })
+})
+
+//===================================================
+
+// Ендпоїнт для відображення інформації про замовлення
+router.get('/purchase-orderinfo', function (req, res) {
+  const id = Number(req.query.id) // Можливо, використати ID користувача чи замовлення
+
+  const purchase = Purchase.getById(id)
+
+  if (!purchase) {
+    return res.render('purchase-alert', {
+      style: 'purchase-alert',
+      data: {
+        message: 'Помилка',
+        info: 'Замовлення не знайдено',
+        link: `/`,
+      },
+    })
+  }
+
+  res.render('purchase-orderinfo', {
+    style: 'purchase-orderinfo',
+    data: purchase,
+    actions: {
+      editLink: `/purchase-edit?id=${id}`, // Посилання для редагування замовлення
+    },
+  })
+})
+
+// Ендпоїнт для редагування особистих даних покупця
+router.get('/purchase-edit', function (req, res) {
+  const id = Number(req.query.id)
+  const purchase = Purchase.getById(id)
+
+  if (!purchase) {
+    return res.render('purchase-alert', {
+      style: 'purchase-alert',
+      data: {
+        message: 'Помилка',
+        info: 'Замовлення для редагування не знайдено',
+        link: '/purchase-orderinfo',
+      },
+    })
+  }
+
+  res.render('purchase-edit', {
+    style: 'purchase-edit',
+    data: {
+      id,
+      firstname: purchase.firstname,
+      lastname: purchase.lastname,
+      email: purchase.email,
+      phone: purchase.phone,
+    },
+  })
+})
+
+// Пости для оновлення інформації про користувача
+// router.post('/purchase-edit', function (req, res) {
+//   const id = Number(req.query.id)
+//   const updatedData = {
+//     firstname: req.body.firstname,
+//     lastname: req.body.lastname,
+//     email: req.body.email,
+//     phone: req.body.phone,
+//   }
+
+//   const success = Purchase.updateById(id, updatedData)
+
+//   if (success) {
+//     res.redirect(`/purchase-orderinfo?id=${id}`)
+//   } else {
+//     // ... повертати помилку у разі невдалого оновлення
+//     return res.render('purchase-alert', {
+//       style: 'purchase-alert',
+//       data: {
+//         message: 'Помилка',
+//         info: 'Помилка при оновленні даних',
+//         link: '/purchase-orderinfo',
+//       },
+//     })
+//   }
+// })
+
+router.post('/purchase-edit', function (req, res) {
+  const id = Number(req.body.id)
+  // Отримуємо ID з тіла запиту
+
+  const updatedData = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    phone: req.body.phone,
+  }
+
+  console.log('ID отриманий з тіла запиту:', id) // Виводимо ID для перевірки
+
+  console.log('Оновлені дані:', updatedData) // Виводимо оновлені дані для перевірки
+
+  const success = Purchase.updateById(id, updatedData)
+
+  if (success) {
+    res.redirect(`/purchase-orderinfo?id=${id}`)
+  } else {
+    return res.render('purchase-alert', {
+      style: 'purchase-alert',
+      data: {
+        message: 'Помилка',
+        info: 'Помилка при оновленні даних',
+        link: '/purchase-orderinfo',
+      },
+    })
+  }
+})
+
+// Ендпоїнт для відображення списку замовлених товарів
+router.get('/purchase-list', function (req, res) {
+  const purchases = Purchase.getList()
+
+  res.render('purchase-list', {
+    style: 'purchase-list',
+    data: purchases.map((purchase) => ({
+      productID: purchase.product.id,
+      productName: purchase.product.title,
+      totalPrice: purchase.totalPrice,
+      earnedBonus: Purchase.calcBonusAmount(
+        purchase.totalPrice,
+      ),
+    })),
   })
 })
 

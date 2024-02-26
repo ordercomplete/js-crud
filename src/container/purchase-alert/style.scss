@@ -27,17 +27,10 @@
     color: rgb(62, 162, 255);
   }
 
-  // .h2 {
-  //   font-size: 20px;
-  //   font-weight: bold;
-  // }
-
   &__namePrice {
     display: flex;
     justify-content: space-between;
-    // justify-content: center;
     align-items: center;
-    // height: 100vh; /* Належна висота */
   }
 
   &__namePrice .form__field {
@@ -47,7 +40,6 @@
   &__content {
     display: grid;
     gap: s.space(4);
-    // margin: 10px;
   }
 
   &__content .form__field .form__description {

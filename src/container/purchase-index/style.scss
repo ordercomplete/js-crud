@@ -12,13 +12,13 @@
   flex-direction: column;
   gap: s.space(10);
   padding: s.space(10);
-  align-items: center; /* Вирівняти по горизонталі по центру */
+  align-items: center;
 }
 
 .product-text {
-  text-align: left; // Вирівнювання заголовка зліва
-  width: 100%; // Заголовок займає всю ширину контейнера
-  max-width: 1000px; /* Змінено на max-width для більшої гнучкості */
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
   display: grid;
   gap: s.space(4);
 }
@@ -35,8 +35,8 @@
 }
 
 .product-list {
-  max-width: 1000px; /* Змінено на max-width для більшої гнучкості */
-  width: 100%; /* Займає всю доступну ширину батьківського контейнера */
+  max-width: 1000px;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: s.space(5);

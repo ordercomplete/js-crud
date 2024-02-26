@@ -1,0 +1,47 @@
+<div class='form__card'>
+      {{#if data.length}}
+        <div class='purchaseList'>
+          {{#each data}}
+            <div class='purchaseList__card'>
+              <div class='purchaseList__flex'>
+
+              
+                <div class='purchaseList__id purchaseList__border'>
+                {{> field-id label="ID:" name=productID}}
+                </div>
+
+                <div class="purchaseList__border purchaseList__grid"
+                >{{> form-field label="Назва товару:" name=productName}}
+                </div>
+
+                <div class="purchaseList__border purchaseList__grid"
+                >{{> form-field label="Вартість товару:" name=totalPrice}}
+                </div>
+
+                <div class="purchaseList__border purchaseList__grid"
+                >{{> form-field label="Кількість бонусів:" name=earnedBonus}}
+                </div>
+
+                <div class="purchaseList__btngrid">
+
+                  <a href='/purchase-orderinfo?id={{productID}}'
+                    class='purchaseList__button button-blue'>
+                    Інформація про замовлення
+                  </a>
+                  <a href='/purchase-edit?id={{productID}}'
+                    class='purchaseList__button button-yellowgreen'>
+                    Редагувати персональні дані
+                  </a>
+                  
+                </div>
+
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="text-center">
+          <mark>Ще не додано жодного товару</mark>
+        </div>
+      {{/if}}
+    </div>
