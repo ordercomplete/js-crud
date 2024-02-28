@@ -1,7 +1,7 @@
-{{! 
-Це код container файлу для index сторінки, 
+{{!
+Це код container файлу для index сторінки,
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
- }}
+}}
 <main class='main'>
 
   <section>
@@ -12,37 +12,17 @@
           <div class='form__field'>
             <label for='email' class='form__label'>Email
               адреса</label>
-            <input
-              type='email'
-              name='email'
-              class='form__input'
-            />
+            <input type='email' name='email' class='form__input' />
           </div>
           <div class='form__field'>
-            <label
-              for='login'
-              class='form__label'
-            >Нікнейм</label>
-            <input
-              type='login'
-              name='login'
-              class='form__input'
-            />
+            <label for='login' class='form__label'>Нікнейм</label>
+            <input type='login' name='login' class='form__input' />
           </div>
           <div class='form__field'>
-            <label
-              for='password'
-              class='form__label'
-            >Пароль</label>
-            <input
-              type='password'
-              name='password'
-              class='form__input'
-            />
+            <label for='password' class='form__label'>Пароль</label>
+            <input type='password' name='password' class='form__input' />
           </div>
-          <button
-            class='form__button form__btnBlue'
-          >Створити</button>
+          <button class='form__button form__btnBlue'>Створити</button>
         </div>
       </form>
     </div>
@@ -54,25 +34,22 @@
 
       <div class='user-list'>
         {{#with data.users}}
-          {{#if isEmpty}}
-            <mark>пустий</mark>
-          {{else}}
-            <ul>
-              {{#each list}}
-                <li>{{email}}
-                  |
-                  {{login}}
-                  |
-                  {{id}}
-                  <button
-                    onclick="window.location.href='/user-delete?id={{id}}'"
-                    type='button'
-                    class='form__button form__btnRed'
-                  >Видалити користувача</button>
-                </li>
-              {{/each}}
-            </ul>
-          {{/if}}
+        {{#if isEmpty}}
+        <mark>пустий</mark>
+        {{else}}
+        <ul>
+          {{#each list}}
+          <li>{{email}}
+            |
+            {{login}}
+            |
+            {{id}}
+            <button onclick="window.location.href='/user-delete?id={{id}}'" type='button'
+              class='form__button form__btnRed'>Видалити користувача</button>
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
         {{/with}}
       </div>
 
@@ -86,35 +63,18 @@
         <div class='form__content'>
           <div class='form__field'>
             <label for='id' class='form__label'>ID</label>
-            <input
-              type='id'
-              name='id'
-              class='form__input'
-            />
+            <input type='id' name='id' class='form__input' />
           </div>
           <div class='form__field'>
             <label for='email' class='form__label'>Нова
               еmail адреса</label>
-            <input
-              type='email'
-              name='email'
-              class='form__input'
-            />
+            <input type='email' name='email' class='form__input' />
           </div>
           <div class='form__field'>
-            <label
-              for='password'
-              class='form__label'
-            >Пароль</label>
-            <input
-              type='password'
-              name='password'
-              class='form__input'
-            />
+            <label for='password' class='form__label'>Пароль</label>
+            <input type='password' name='password' class='form__input' />
           </div>
-          <button
-            class='form__button form__btnGreen'
-          >Відправити</button>
+          <button class='form__button form__btnGreen'>Відправити</button>
         </div>
       </form>
     </div>
@@ -122,7 +82,9 @@
 
 </main>
 
-{{! 
-    Цей код містить лише те, що буде виводитись в <body>
-    Адже наш layout/default.hbs має вже структуру HTML
-}}
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+  Адже наш layout/default.hbs має вже структуру HTML
+  }}

@@ -1,12 +1,12 @@
 <main class="main">
   {{#with data}}
-    <div class="form-card"> 
-      
-      
-      {{> heading title="Інформація про замовлення"}}
-      {{> field-id label="ID:" name=id}}
+  <div class="form-card">
 
-      {{> divider}}
+
+    {{> heading title="Інформація про замовлення"}}
+    {{> field-id label="ID:" name=id}}
+
+    {{> divider}}
 
     <div class="cart__flex">
       {{> form-field label="Ім'я:" name=firstname}}
@@ -18,15 +18,15 @@
       {{> form-field label="Пошта:" name=email}}
     </div>
 
-      {{> divider}}
+    {{> divider}}
 
     <div class="cart__grid">
       {{> form-field label="Назва товару:" name=product.title}}
       {{> form-field label="Коментар:" name=comment}}
     </div>
 
-      {{> divider}}
-  
+    {{> divider}}
+
     <div class="cart__flex">
       {{> form-field label="Вартість товарів:" name=productPrice currency=" ₴"}}
       {{> form-field label="Вартість доставки:" name=deliveryPrice currency=" ₴"}}
@@ -34,24 +34,18 @@
 
     <div class="cart__flex">
       {{> form-field label="Сума до сплати:" name=totalPrice currency=" ₴"}}
-      
+
       {{> form-field label="Нараховані бонуси:" name=bonus currency=" ₴"}}
     </div>
-  
-      {{> divider}}
 
-      <button
-          onclick="location.href='/purchase-edit?id={{id}}'"
-          class='form-card__button'
-        >Редагувати
-      </button>
+    {{> divider}}
 
-      <button
-          onclick="location.href='/purchase-list'"
-          class='form-card__button'
-        >Мої товари
-      </button>
+    <button onclick="location.href='/purchase-edit?id={{id}}'" class='form-card__button'>Редагувати
+    </button>
 
-    </div>
+    <button onclick="location.href='/purchase-list'" class='form-card__button'>Мої товари
+    </button>
+
+  </div>
   {{/with}}
 </main>
