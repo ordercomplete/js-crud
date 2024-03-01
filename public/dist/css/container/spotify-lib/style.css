@@ -1,0 +1,172 @@
+@charset "UTF-8";
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.6s;
+}
+a:hover {
+  opacity: 0.6;
+}
+
+.main {
+  background-color: rgb(46, 40, 40);
+  min-height: 100%;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+}
+
+.main__content {
+  height: fit-content;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-top: 32px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.title--center {
+  text-align: center;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 92px 1fr 42px;
+  gap: 28px;
+  align-items: center;
+}
+.track__list {
+  display: grid;
+  gap: 28px;
+  padding: 12px 24px;
+}
+.track__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.track__name {
+  font-size: 24px;
+  color: #ddd;
+}
+.track__author {
+  font-size: 16px;
+  color: #bdbdbd;
+}
+
+.playlist {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.playlist__list {
+  display: grid;
+  gap: 28px;
+}
+.playlist__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.playlist__name {
+  font-size: 24px;
+  color: #ddd;
+}
+.playlist__amount {
+  font-size: 16px;
+  color: #bdbdbd;
+}
+
+.spotify-card {
+  max-width: 720px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  display: grid;
+  flex: 1 0 48%; /* Ширина блока 48% і може змінюватися в залежності від кількості блоків в ряду */
+}
+.spotify-card__playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  justify-content: space-between;
+}
+.spotify-card__image {
+  width: 100%;
+  display: block;
+}
+.spotify-card__name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.spotify-card__amount {
+  font-size: 16px;
+  color: #bdbdbd;
+}
+.spotify-card__alert {
+  background-color: rgb(46, 40, 40);
+  color: #bdbdbd;
+}
+.spotify-card__icon {
+  display: flex;
+  align-self: self-end;
+  align-items: center;
+  gap: 10px;
+  color: red;
+}
+
+.spotify-card__playlist:first-child:nth-last-child(1),
+.spotify-card__playlist:nth-last-child(1) {
+  flex: 0 0 100%; /* Блок одного у ряду займає всю ширину */
+}
+
+.spotify-lib__content {
+  gap: 32px;
+}
+
+.spotify-lib__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 720px;
+  padding: 40px 0 40px 0;
+}
+
+.lib-title {
+  color: rgb(255, 254, 254);
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.spotify-lib__icon {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.spotify-lib__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=style.css.map */

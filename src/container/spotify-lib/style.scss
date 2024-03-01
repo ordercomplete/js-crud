@@ -1,0 +1,49 @@
+@use "../../lib/service.scss" as s;
+@use "../../lib/spotify.scss" as spotify;
+
+@use "../../component/spotify-card/style.scss" as spotify-card;
+
+.spotify-lib__content {
+  // display: flex;
+  gap: s.space(8);
+}
+.spotify-lib__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 720px;
+  padding: 40px 0 40px 0;
+}
+
+.lib-title {
+  color: rgb(255, 254, 254);
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.spotify-lib__icon {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.spotify-lib__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  //   max-width: 720px;
+  //   width: 100%;
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   gap: s.space(8);
+}

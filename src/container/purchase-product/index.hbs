@@ -4,48 +4,38 @@
     <div class="product-single__title">
       {{> heading title="Інформація про товар"}}
     </div>
-    
+
   </div>
 
   {{#with data.product}}
 
-    <form method="POST" action="/purchase-create?id={{id}}">
+  <form method="POST" action="/purchase-create?id={{id}}">
 
-      <div class="product-info">
+    <div class="product-info">
 
-        <img
-          src="{{img}}"
-          аlt="{{title}}"
-          class="product-info__image"
-        />
+      <img src="{{img}}" аlt="{{title}}" class="product-info__image" />
 
-        <div class="product-info__text">
+      <div class="product-info__text">
 
-          <h2 class="product-info__title">{{title}}</h2>
-          <p
-            class="product-info__subtitle"
-          >{{description}}</p>
+        <h2 class="product-info__title">{{title}}</h2>
+        <p class="product-info__subtitle">{{description}}</p>
 
-          {{> divider}}
+        {{> divider}}
 
-          {{#each category}}
-            <span
-              class="product-info__category product-info__category--{{id}}"
-            >{{text}}</span>
-          {{/each}}
+        {{#each category}}
+        <span class="product-info__category product-info__category--{{id}}">{{text}}</span>
+        {{/each}}
 
-          {{> divider}}
+        {{> divider}}
 
-          {{> field label="Кількість" type="number" name="amount" value="1"}}
+        {{> field label="Кількість" type="number" name="amount" value="1"}}
 
-          <button
-            class="product-info__button"
-          >Kyпити зараз: {{price}} грн</button>
+        <button class="product-info__button">Kyпити зараз: {{price}} грн</button>
 
-        </div>
       </div>
+    </div>
 
-    </form>
+  </form>
 
   {{/with}}
 
@@ -60,8 +50,7 @@
 
   <div class="product-list">
     {{#each data.list}}
-      {{> purchase-product data=this}}
+    {{> purchase-product data=this}}
     {{/each}}
   </div>
 </main>
-

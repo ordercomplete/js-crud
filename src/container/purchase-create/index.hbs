@@ -1,49 +1,49 @@
 <main class="main">
   {{#with data}}
-    <form method="POST" action="/purchase-submit?id={{id}}" class="purchase-create"> 
-      {{> heading title="Baшe замовлення"}}
-      
-        <ul class="purchase-create__card">
-          {{#each cart}}
-            <li class="purchase-create__card-item">
-              <span>{{text}}</span>
-              <span>{{price}} ₴</span>
-            </li>
-          {{/each}}
-        </ul>
-      {{> divider}}
+  <form method="POST" action="/purchase-submit?id={{id}}" class="purchase-create">
+    {{> heading title="Baшe замовлення"}}
 
-      {{> heading info="Оформлення замовлення"}}
+    <ul class="purchase-create__card">
+      {{#each cart}}
+      <li class="purchase-create__card-item">
+        <span>{{text}}</span>
+        <span>{{price}} ₴</span>
+      </li>
+      {{/each}}
+    </ul>
+    {{> divider}}
 
-      <div class="purchase-create__card-flex">
-        {{> field label="Ім'я:" name="firstname"}}
-        {{> field label="Прізвище:" name="lastname"}}
-      </div>
+    {{> heading info="Оформлення замовлення"}}
 
-      <div class="purchase-create__card-flex">
-        {{> field label="Телефон:" name="phone"}}
-        {{> field label="Пошта:" name="email"}}
-      </div>
+    <div class="purchase-create__card-flex">
+      {{> field label="Ім'я:" name="firstname"}}
+      {{> field label="Прізвище:" name="lastname"}}
+    </div>
 
-      <div class="purchase-create__card-comment">
-        {{> field label="Коментар:" name="comment" labelDown="Коментар буде передано кур’єру"}}
-      </div>
+    <div class="purchase-create__card-flex">
+      {{> field label="Телефон:" name="phone"}}
+      {{> field label="Пошта:" name="email"}}
+    </div>
 
-      <div class="purchase-create__card-flex">
-        {{> field label="Списати бонуси" name="bonus"}}
-        {{> field label="Промо-код" name="promocode"}}
-      </div>
+    <div class="purchase-create__card-comment">
+      {{> field label="Коментар:" name="comment" labelDown="Коментар буде передано кур’єру"}}
+    </div>
 
-      {{> divider}}
+    <div class="purchase-create__card-flex">
+      {{> field label="Списати бонуси" name="bonus"}}
+      {{> field label="Промо-код" name="promocode"}}
+    </div>
 
-      {{> field value=totalPrice name="totalPrice" disabled=true}}
-      {{> field value=productPrice name="productPrice" disabled=true}}
-      {{> field value=deliveryPrice name="deliveryPrice" disabled=true}}
-      {{> field value=amount name="amount" disabled=true}}
+    {{> divider}}
+
+    {{> field value=totalPrice name="totalPrice" disabled=true}}
+    {{> field value=productPrice name="productPrice" disabled=true}}
+    {{> field value=deliveryPrice name="deliveryPrice" disabled=true}}
+    {{> field value=amount name="amount" disabled=true}}
 
 
-      <strong class="purchase-create__total"> Всього: {{totalPrice}} ₴ ({{bonus}} ₴ на бонусний рахунок)</strong>
-      {{> button text="Оформити замовлення"}}
-    </form>
+    <strong class="purchase-create__total"> Всього: {{totalPrice}} ₴ ({{bonus}} ₴ на бонусний рахунок)</strong>
+    {{> button text="Оформити замовлення"}}
+  </form>
   {{/with}}
 </main>

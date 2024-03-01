@@ -1,0 +1,22 @@
+{{#with data}}
+<div class="spotify-card">
+
+
+  {{#each list}}
+  <div class="spotify-card__playlist">
+
+    <a class="spotify-card__image" href="/spotify-playlist?id={{id}}{{#if data.isMix}}?isMix=true{{/if}}">
+      <img src="{{image}}" alt="{{name}}" class="spotify-card__image">
+    </a>
+
+    <strong class="spotify-card__name">{{name}}</strong>
+    <span class="spotify-card__amount">Кількість пісень: {{amount}} </span>
+    <a class="spotify-card__icon" href="/spotify-playlist-delete/{{id}}"
+      onclick="return confirm('Ви впевнені, що хочете видалити цей плейліст?')">Видалити плейліст <img width="20px"
+        height="20px" src="/svg/cross_delete.svg" alt="Видалити плейліст"></a>
+  </div>
+  {{/each}}
+
+
+</div>
+{{/with}}

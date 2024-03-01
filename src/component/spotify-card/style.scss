@@ -1,0 +1,54 @@
+@use "../../lib/service.scss" as s;
+
+.spotify-card {
+  max-width: 720px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: s.space(8);
+
+  display: grid;
+  flex: 1 0 48%; /* Ширина блока 48% і може змінюватися в залежності від кількості блоків в ряду */
+
+  &__playlist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: s.space(3);
+
+    justify-content: space-between;
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__amount {
+    font-size: 16px;
+    color: s.color(gray);
+  }
+  &__alert {
+    background-color: s.color(dark);
+    color: s.color(gray);
+  }
+
+  &__icon {
+    display: flex;
+    align-self: self-end;
+    align-items: center;
+    gap: 10px;
+    color: red;
+    // justify-content: space-between;
+  }
+}
+
+.spotify-card__playlist:first-child:nth-last-child(1),
+.spotify-card__playlist:nth-last-child(1) {
+  flex: 0 0 100%; /* Блок одного у ряду займає всю ширину */
+}
