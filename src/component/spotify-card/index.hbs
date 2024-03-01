@@ -11,7 +11,9 @@
 
     <strong class="spotify-card__name">{{name}}</strong>
     <span class="spotify-card__amount">Кількість пісень: {{amount}} </span>
-
+    <a class="spotify-card__icon" href="/spotify-playlist-delete/{{id}}"
+      onclick="return confirm('Ви впевнені, що хочете видалити цей плейліст?')">Видалити плейліст <img width="20px"
+        height="20px" src="/svg/cross_delete.svg" alt="Видалити плейліст"></a>
   </div>
   {{/each}}
 

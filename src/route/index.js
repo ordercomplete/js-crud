@@ -90,6 +90,15 @@ class Playlist {
       this.tracks.push(trackToAdd);
     }
   }
+
+  static deleteById(id) {
+    const idx = this.#list.findIndex((playlist) => playlist.id === id);
+    if (idx !== -1) {
+      this.#list.splice(idx, 1); // Видаляє знайдени об'єкт за індексом
+      return true;
+    }
+    return false;
+  }
 }
 
 //===================================================
@@ -340,6 +349,25 @@ router.get("/spotify-track-add", function (req, res) {
 
   // Після успішного добавлення трека, перенаправляємо користувача на сторінку плейліста
   res.redirect(`/spotify-playlist?id=${playlistId}`);
+});
+
+router.get("/spotify-playlist-delete/:id", function (req, res) {
+  const id = Number(req.params.id); // Отримуємо id з параметрів шляху
+
+  if (Playlist.deleteById(id)) {
+    // Викликаємо метод видалення
+    res.redirect("/"); // Перенаправляємо користувача на головну сторінку або на сторінку списку
+  } else {
+    // Якщо видалити не вдалось, повідомляємо про помилку
+    res.render("spotify-alert", {
+      style: "spotify-alert",
+      data: {
+        message: "Помилка",
+        info: "Плейліст не знайдено або вже було видалено",
+        link: "/",
+      },
+    });
+  }
 });
 
 // Підключаємо роутер до бек-енду

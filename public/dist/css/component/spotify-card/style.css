@@ -31,6 +31,13 @@
   background-color: rgb(46, 40, 40);
   color: #bdbdbd;
 }
+.spotify-card__icon {
+  display: flex;
+  align-self: self-end;
+  align-items: center;
+  gap: 10px;
+  color: red;
+}
 
 .spotify-card__playlist:first-child:nth-last-child(1),
 .spotify-card__playlist:nth-last-child(1) {

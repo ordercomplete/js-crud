@@ -37,6 +37,15 @@
     background-color: s.color(dark);
     color: s.color(gray);
   }
+
+  &__icon {
+    display: flex;
+    align-self: self-end;
+    align-items: center;
+    gap: 10px;
+    color: red;
+    // justify-content: space-between;
+  }
 }
 
 .spotify-card__playlist:first-child:nth-last-child(1),
