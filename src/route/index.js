@@ -143,6 +143,8 @@ router.get("/spotify-search", function (req, res) {
 
 // Обробник для пошуку плейлістів
 router.post("/spotify-search", function (req, res) {
+  const value = req.body.value || "";
+
   const searchQuery = req.body.value.toLowerCase(); // Отримуємо значення введене користувачем у полі пошуку та переводимо у нижній регістр для нечутливого до регістру пошуку
 
   // Фільтруємо список плейлістів на основі запиту користувача
@@ -156,8 +158,10 @@ router.post("/spotify-search", function (req, res) {
   // Рендеримо сторінку з результатами пошуку
   res.render("spotify-search", {
     style: "spotify-search",
+
     data: {
       list: filteredPlaylists, // Передаємо знайдені плейлісти до шаблону з доданим полем кількості треків
+      value,
     },
   });
 });
@@ -313,6 +317,7 @@ router.get("/spotify-playlist-add", function (req, res) {
     data: {
       playlistId: playlistId,
       tracks: Track.getList(), // Показуємо список усіх доступних треків для додавання
+      name: playlistId.name,
     },
   });
 

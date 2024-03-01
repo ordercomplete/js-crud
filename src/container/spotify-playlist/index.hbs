@@ -3,16 +3,18 @@
   <div class="main__content">
 
     <div class="title">
-      <a class="icon" href="/">
+      <a class="title-icon" href="/">
         <img src="/svg/cross_back.svg">
       </a>
-      <h1 class=" title--center">{{name}}</h1>
+      <h1 class="title--center">{{name}}</h1>
     </div>
 
-    <a href="/spotify-playlist-add?playlistId={{playlistId}}" class="add-button">
+
+    <a class="add-button" href="/spotify-playlist-add?playlistId={{playlistId}}">
       <img src="/svg/add_button.svg">
       Додати до плейліста
     </a>
+
 
     <ul class="track__list">
       {{#each tracks}}

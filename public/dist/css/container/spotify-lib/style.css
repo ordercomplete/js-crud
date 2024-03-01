@@ -14,7 +14,6 @@ a:hover {
   color: #ddd;
   display: flex;
   justify-content: center;
-  padding: 24px 8px;
 }
 
 .main__content {
@@ -24,6 +23,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 60px;
+  padding-top: 32px;
 }
 
 .title {
@@ -43,6 +43,7 @@ a:hover {
 .track__list {
   display: grid;
   gap: 28px;
+  padding: 12px 24px;
 }
 .track__content {
   display: flex;

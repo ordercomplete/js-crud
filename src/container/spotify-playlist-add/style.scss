@@ -8,4 +8,9 @@
   gap: s.space(6);
   color: s.color(light);
   font-size: 18px;
+  padding-left: 24px;
+}
+
+.track-list__background {
+  background-color: s.color(gray-dark);
 }

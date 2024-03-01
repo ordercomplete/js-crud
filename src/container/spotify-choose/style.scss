@@ -16,7 +16,6 @@ a {
   color: s.color(light);
   display: flex;
   justify-content: center;
-  padding: s.space(6) s.space(2);
 }
 .main__content {
   width: 100%;
@@ -28,7 +27,6 @@ a {
 
 .title {
   font-size: 24px;
-  // display: flex;
 }
 .icon {
   display: flex;

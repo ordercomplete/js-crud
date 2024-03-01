@@ -8,9 +8,10 @@
   gap: s.space(6);
   color: s.color(light);
   font-size: 18px;
+  padding-left: 32px;
 }
 
-.icon {
+.title-icon {
   display: flex;
   justify-content: end;
 }

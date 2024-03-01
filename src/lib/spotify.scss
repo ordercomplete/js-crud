@@ -15,7 +15,7 @@ a {
   color: s.color(light);
   display: flex;
   justify-content: center;
-  padding: s.space(6) s.space(2);
+  // padding-bottom: s.space(6) s.space(2);
 }
 
 .main__content {
@@ -25,6 +25,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: s.space(15);
+  padding-top: 32px;
 }
 
 .title {
@@ -39,11 +40,19 @@ a {
   grid-template-columns: 92px 1fr 42px;
   gap: s.space(7);
   align-items: center;
+  // background-color: s.color(gray-dark);
 
   &__list {
     display: grid;
     gap: s.space(7);
+    padding: 12px 24px;
+    // padding-right: 24px;
+    // background-color: s.color(gray-dark);
   }
+
+  // &__background {
+  //   background-color: s.color(gray-dark);
+  // }
 
   &__content {
     display: flex;

@@ -21,11 +21,12 @@
         <a href="/spotify-playlist?id={{id}}{{#if data.isMix}}?isMix=true{{/if}}">
           <img height="100px" src="{{image}}" alt="{{name}}">
         </a>
+
         <div class="playlist__content">
           <strong class="playlist__name">{{name}}</strong>
           <span class="playlist__amount">Кількість пісень: {{amount}} </span>
-
         </div>
+
       </li>
       {{/each}}
     </ul>
